@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="description" content="Responsive Admin Template" />
+    <meta name="author" content="SmartUniversity" />
+    <title>DF Contact Centre</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <!-- icons -->
+    <link href="https://covid.dfindia.org/Content/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" />
+    <!--bootstrap -->
+    <link href="https://covid.dfindia.org/Content/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- data tables -->
+    <link href="https://covid.dfindia.org/Content/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet"
+          type="text/css" />
+    <link href="..https://covid.dfindia.org/Content/assets/plugins/datatables/export/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <!-- Material Design Lite CSS -->
+    <link rel="stylesheet" href="https://covid.dfindia.org/Content/assets/plugins/material/material.min.css">
+    <link rel="stylesheet" href="https://covid.dfindia.org/Content/assets/css/material_style.css">
+    <!-- Theme Styles -->
+    <link href="https://covid.dfindia.org/Content/assets/css/theme/light/theme_style.css" rel="stylesheet" id="rt_style_components" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/assets/css/theme/light/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/css/iziToast.min.css" rel="stylesheet" />
+    <script src="https://covid.dfindia.org/Content/js/iziToast.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/js/toastr-custom.js"></script>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <style>
+        #PageTitle {
+            letter-spacing: 2px;
+            color: #23527c;
+        }
+
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('http://arab-torrents.net/1/Load.gif') 50% 50% no-repeat rgb(222, 218, 218);
+            opacity: .8;
+        }
+
+        .navbar-brand {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .selectedCell {
+            /*background-color: #b8d1f3;*/
+            background-color: #acbad4;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            setTimeout(function () { $('.loader').fadeOut('slow'); });
+        });
+    </script>
+</head>
+
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo" >
+    <div class="loader"></div>
+    <div class="page-wrapper">
+
+        <!-- start header -->
+        <div class="page-header navbar navbar-fixed-top">
+
+            
+            <div class="page-header-inner ">
+                <!-- logo start -->
+                <div class="page-logo" style="border:0px;">
+                    <a>
+                        <span class=""><img alt="" src="https://covid.dfindia.org/Content/assets/img/df-logo-01.png" /></span>
+                        <span class="logo-default"></span>
+                    </a>
+                </div>
+                <!-- logo end -->
+                <ul class="nav navbar-nav navbar-left in">
+                    <li>
+                        <a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i>&nbsp;&nbsp; <label id="PageTitle" class="navbar-brand font-dark bold uppercase"> </label> </a>
+
+                    </li>
+
+
+
+                </ul>
+
+
+                <div class="top-menu">
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" style="display:none;">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                               data-close-others="true">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="badge headerBadgeColor1"> 6 </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="external">
+                                    <h3><span class="bold">Notifications</span></h3>
+                                    <span class="notification-label purple-bgcolor">New 6</span>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">just now</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle deepPink-bgcolor">
+                                                        <i class="fa fa-check"></i>
+                                                    </span>
+                                                    Congratulations!.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">3 mins</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle purple-bgcolor">
+                                                        <i class="fa fa-user o"></i>
+                                                    </span>
+                                                    <b>John Micle </b>is now following you.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">7 mins</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle blue-bgcolor">
+                                                        <i class="fa fa-comments-o"></i>
+                                                    </span>
+                                                    <b>Sneha Jogi </b>sent you a message.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">12 mins</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle pink">
+                                                        <i class="fa fa-heart"></i>
+                                                    </span>
+                                                    <b>Ravi Patel </b>like your photo.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">15 mins</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle yellow">
+                                                        <i class="fa fa-warning"></i>
+                                                    </span> Warning!
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">10 hrs</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle red">
+                                                        <i class="fa fa-times"></i>
+                                                    </span> Application error.
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="dropdown-menu-footer">
+                                        <a href="javascript:void(0)"> All notifications </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-user">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                               data-close-others="true">
+                                <img alt="" class="img-circle " src="https://covid.dfindia.org/Content/Icon/NoImage.jpg" />
+                                <span class="username username-hide-on-mobile"> <span class="hidden-xs">anu@dfmail.org</span> </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                
+                                <li>
+                                    <a href="/Home/Logout">
+                                        <i class="icon-logout"></i> Log Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+                               data-target=".navbar-collapse">
+                                <span></span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- end color quick setting -->
+        <!-- start page container -->
+        <div class="page-container">
+            <!-- start sidebar menu -->
+            <div class="sidebar-container">
+                <div class="sidemenu-container navbar-collapse collapse fixed-menu">
+                    <div id="remove-scroll" class="left-sidemenu">
+                        <ul id="nav" class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
+                            data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                            <li class="sidebar-toggler-wrapper hide">
+                                <div class="sidebar-toggler">
+                                    <span></span>
+                                </div>
+                            </li>
+                                    <li class="nav-item">
+            <a href="/Services/Index" class="nav-link nav-toggle">
+                
+                <span class="title">Hospital Details</span>
+            </a>
+        </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <div class="visible-lg visible-md visible-sm">
+                        <br />
+                    </div>
+                    
+
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+<style>
+    .loader {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(192, 192, 192, 0.5);
+        background-image: url('../..https://covid.dfindia.org/Content/Load.gif');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    h3.card-subheads {
+    font-size: 18px !important;
+    line-height: 10px;
+    font-weight: 500;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    border-bottom: 1px solid #0000005e;
+    padding:    10px;
+    border-bottom:  1px solid #eee;
+}
+
+h3.card-subheads1 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 6px;
+}
+</style>
+
+
+
+
+<br>
+<div id="loader" class="loader">
+
+</div>
+<div id="vmTopStatic">
+    <div class="state-overview">
+        <div class="card">
+            <div class="card-body" style="padding-bottom:0px;">
+                <div class="row">
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel blue-bgcolor">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/oxi.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Oximeter_Total"></p>
+                                <p class="sbold addr-font-h4">Total Oximeter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel orange">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/in-stock.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Oximeter_InStock"></p>
+                                <p class="sbold addr-font-h4">InStock Oximeter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel deepPink-bgcolor">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/available.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Oximeter_Issued"></p>
+                                <p class="sbold addr-font-h4">Issued Oximeter</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel blue-bgcolor">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/thermometer.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Thermometer_Total"></p>
+                                <p class="sbold addr-font-h4">Total<br> Thermometer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel orange">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/in-stock.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Thermometer_InStock"></p>
+                                <p class="sbold addr-font-h4">Instock <br>Thermometer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel deepPink-bgcolor">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/available.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Thermometer_Issued"></p>
+                                <p class="sbold addr-font-h4">Issued <br>Thermometer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!--   <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                   
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a href="#Requests" id="tabRequest" aria-controls="Requests" role="tab" data-toggle="tab">
+                                        Requests
+                                    </a>
+                                </li>
+                                <li class="nav-item"> <a href="#Issued" aria-controls="Issued" id="tabIssue" role="tab" data-toggle="tab">Issued</a></li>
+                            </ul>
+                           
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+
+                
+            </div>
+        </div>
+    </div> -->
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-topline-lightblue" id="Patient_Request" >
+                <h3 class="card-subheads1">Hospital Details</h3>
+
+                <!-- 1st Card starts -->
+                <div class="card">
+                    <h3 class="card-subheads">Beds Capacity</h3>
+                    <!-- 1st Row starts -->
+                                    <div class="row form-group">
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            Expected Beds
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="TOT_EXP_DEDS" placeholder="Expected Beds">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            Actual Beds
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="ACT_BEDS" placeholder="Actual Beds">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            Oxygen Beds 
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="TOT_OXY_BEDS" placeholder="Oxygen Beds">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            ICU Beds 
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="TOT_ICU_BEDS" placeholder="ICU Beds">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            Ventilators
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="TOT_VENT_BEDS" placeholder="Ventilators">
+                                    </div>
+
+                                </div>
+                                <!-- 1st Row Ends -->
+                       </div>
+
+                       <!-- 1st Card Ends -->
+
+                       <!-- 2nd card Starts -->
+
+                       <div class="card">
+                    <h3 class="card-subheads">Total Beds Occupied</h3>
+                    <!-- 2nd row starts -->
+
+                                    <div class="row form-group">
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            AB-ARK
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="ADM_ABARK" placeholder="AB-ARK Admitted">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            AB-ARK DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="ADM_ABARK_DWD" placeholder="AB-ARK DWD">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            AB-ARK Outside
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="ADM_ABARK_OUTDWD" placeholder="Outside DWD">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            Patient 
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="TOT_PATIENTS" placeholder="Total Patients">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            Dharwad
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="DWD" placeholder="DWD Patients">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="oxilable">
+                                            Outside DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="OUTDWD" placeholder="Outside Patients">
+                                    </div>
+
+                                </div>
+
+                                    <!-- 2nd row ends -->
+                       </div>
+
+                       <!-- 2nd Cars Ends -->
+
+
+                       <!-- 3rd Card Starts -->
+                       <div class="card">
+                       <h3 class="card-subheads">Oxygen Bed Occupied</h3>
+                       <!-- 3rd row starts -->
+                                    <div class="row form-group">
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Oxygen Bed Occupied
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="TOT_OXY_OCC" placeholder="Total Oxy Beds">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Within DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="OXY_IN_DWD" placeholder="Within DWD">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Outside DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="OXY_OUT_DWD" placeholder="Outside DWD">
+                                    </div>
+
+                                </div>
+                                <!-- 3rd row ends --> 
+                       </div>
+                       <!-- 3rd Card Ends -->
+
+                       <!-- 4th Card Starts -->
+                       <div class="card">
+                       <h3 class="card-subheads"> ICU Beds Occupied</h3>
+                       <!-- 4th Row Starts -->
+                                <div class="row form-group">
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            ICU Bed Occupied
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="TOT_ICU_OCC" placeholder="Total ICU Beds">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Within DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="ICU_IN_DWD" placeholder="Within DWD">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Outside DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="ICU_OUT_DWD" placeholder="Outside DWD">
+                                    </div>
+                                </div>
+                            <!-- 4th Roe Ends -->
+                       </div>
+                       <!-- 4th Card Ends -->
+
+                    <!--5th Card Starts -->
+                    <div class="card">
+                    <h3 class="card-subheads"> Ventilators Occupied</h3>
+                    <!-- 5th Row Starts -->
+                                    <div class="row form-group">
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Ventilators Occupied
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="TOT_VENT_OCC" placeholder="Total Ventilators">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Within DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="VENT_IN_DWD" placeholder="Within DWD">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Outside DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="VENT_OUT_DWD" placeholder="Outside DWD">
+                                    </div>
+
+                                </div>
+
+                                    <!--5th Row Ends -->
+
+
+                   </div>
+
+                    <!-- 5th Card Ends -->
+
+                    <!-- 6th Card Starts -->
+                    <div class="card">
+                    <h3 class="card-subheads"> Beds Vacant</h3>
+                    <!-- 6th Row Starts -->
+                                    <div class="row form-group">
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Covid Vacant Beds
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="TOT_VCT_COVID_BEDS" placeholder="Vacant Beds">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Oxygen Vacant Beds
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="TOT_VCT_OXY_BEDS" placeholder="Oxygen Beds">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            ICU Vacant
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="TOT_VCT_ICU_BEDS" placeholder="Vacant ICU">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Ventilators Vacant
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="TOT_VCT_VENT_BEDS" placeholder="Vacant Ventilators">
+                                    </div>
+
+                                </div>
+
+                                    <!-- 6th Row Ends -->
+                    </div>
+
+                    <!-- 6th Card Ends -->
+
+                    <!-- 7th Card Starts -->
+                    <div class="card">
+                        <h3 class="card-subheads"> Number of Patients given Remdesivir vials</h3>
+                        <!-- 7th Row Starts -->
+                                    <div class="row form-group">
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Remdesivir Given
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="TOT_REMD_GIVEN" placeholder="Total Avail GIven">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Within DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="TOT_REMD_GIVEN_IN_DWD" placeholder="Within DWD">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Outside DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="TOT_REMD_GIVEN_OUT_DWD" placeholder="Outside DWD">
+                                    </div>
+
+                                </div>
+
+                                <!-- 7th Row Ends -->
+                    </div>
+                    <!-- 7th card ends -->
+
+                    <!-- 8th Card Starts -->
+                    <div class="card">
+                        <h3 class="card-subheads">Availability Of</h3>
+                        <!-- 8th Row Starts -->
+                                    <div class="row form-group">
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Remdesivir Available
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="TOT_REMD_AVAIL" placeholder="Total Available">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Oxygen in Litres
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="OXY_IN_LITS" placeholder="Oxygen in Litres">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            No of Deaths
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="No_of_Deaths" placeholder="No of Deaths">
+                                    </div>
+
+                                </div>
+                            <!-- 8th Row Ends -->
+                    </div>
+
+                    <!-- 8th Card Ends -->
+                
+                <!-- 9th Card Starts -->
+                <div class="card">
+                        <h3 class="card-subheads"> Patients Discharged</h3>
+                        <!-- 9th Row Starts -->
+                                    <div class="row form-group">
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Patients Discharged
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="TOT_PATIENTS_DISCHARGED" placeholder="Patients Discharged">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Within DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="DISC_IN_DWD" placeholder="Within DWD">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Outside DWD
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="DISC_OUT_DWD" placeholder="Outside DWD">
+                                    </div>
+
+                                </div>
+
+                                    <!-- 9th Row Ends -->
+                </div>
+
+                <!-- 9th Card Ends -->
+
+                <!--10th Row Starts -->
+                                    <div class="row form-group">
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-primary" id="btnSave">Submit</button>
+                                    </div>
+                                   </div>
+                                    
+                                    
+                                    <!-- 10th Row Ends -->
+              
+
+
+
+            </div>
+<div class="card card-topline-lightblue" id="IssueModal" style="display:none;">                
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+<link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"
+      rel="Stylesheet" type="text/css" />
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/Scripts/bootstrap-datepicker.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+
+                </div>
+            </div>
+            <!-- start footer -->
+            <div class="page-footer">
+                <div class="page-footer-inner">
+                    2021-2022 &copy; Deshpande Foundation, Hubli
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+            </div>
+            <!-- end footer -->
+        </div>
+    </div>
+    <!-- start js include path -->
+    <script src="https://covid.dfindia.org/Content/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/popper/popper.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- bootstrap -->
+    <script src="https://covid.dfindia.org/Content/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- data tables -->
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
+    
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/dataTables.buttons.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/buttons.flash.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/jszip.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/pdfmake.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/vfs_fonts.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/buttons.html5.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/buttons.print.min.js"></script>
+    
+    <!-- Common js-->
+    <script src="https://covid.dfindia.org/Content/assets/js/app.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/js/layout.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/js/theme-color.js"></script>
+    <!-- Material -->
+    <script src="https://covid.dfindia.org/Content/assets/plugins/material/material.min.js"></script>
+    <!-- end js include path -->
+</body>
+</html>

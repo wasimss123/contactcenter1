@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="description" content="Responsive Admin Template" />
+    <meta name="author" content="SmartUniversity" />
+    <title>DF AGRI</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <!-- icons -->
+    <link href="https://agri.dfindia.org/Content/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://agri.dfindia.org/Content/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://agri.dfindia.org/Content/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" />
+    <!--bootstrap -->
+    <link href="https://agri.dfindia.org/Content/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- data tables -->
+    <link href="https://agri.dfindia.org/Content/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet"
+          type="text/css" />
+    <link href="..https://agri.dfindia.org/Content/assets/plugins/datatables/export/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <!-- Material Design Lite CSS -->
+    <link rel="stylesheet" href="https://agri.dfindia.org/Content/assets/plugins/material/material.min.css">
+    <link rel="stylesheet" href="https://agri.dfindia.org/Content/assets/css/material_style.css">
+    <!-- Theme Styles -->
+    <link href="https://agri.dfindia.org/Content/assets/css/theme/light/theme_style.css" rel="stylesheet" id="rt_style_components" type="text/css" />
+    <link href="https://agri.dfindia.org/Content/assets/css/theme/light/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://agri.dfindia.org/Content/assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://agri.dfindia.org/Content/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="https://agri.dfindia.org/Content/assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://agri.dfindia.org/Content/js/jquery.table2excel.js"></script>
+
+    <style>
+          #PageTitle{
+
+letter-spacing:2px;
+color:#23527c;
+  }
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('http://arab-torrents.net/1/Load.gif') 50% 50% no-repeat rgb(222, 218, 218);
+            opacity: .8;
+        }
+        .navbar-brand{
+            padding-top:0px;
+            padding-bottom:0px;
+        }
+        .selectedCell {
+        background-color: #acbad4;
+        }
+
+        label.oxilable {
+        font-weight: 600;
+       }
+
+    @media (min-width: 576px){
+.modal-dialog {
+    max-width: 75%;
+    margin: 1.75rem auto;
+}
+}
+    </style>
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            setTimeout(function () { $('.loader').fadeOut('slow'); });
+        });
+    </script>
+</head>
+
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+    <div class="loader"></div>
+    <div class="page-wrapper">
+                <!-- start header -->
+        <div class="page-header navbar navbar-fixed-top">
+           
+            
+            <div class="page-header-inner ">
+                <!-- logo start -->
+                <div class="page-logo" style="border:0px;">
+                    <a>
+                        <span class=""><img alt=""  src="https://agri.dfindia.org/Content/assets/img/df-logo-01.png" /></span>
+                        <span class="logo-default"></span>
+                    </a>
+                </div>
+                <!-- logo end -->
+                <ul class="nav navbar-nav navbar-left in">
+                    <li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i>&nbsp;&nbsp; <label id="PageTitle" class="navbar-brand font-dark bold uppercase"> </label> </a>
+                       
+                    </li>
+               
+                     
+           
+                </ul>
+              
+         
+                <div class="top-menu">
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" style="display:none;">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                               data-close-others="true">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="badge headerBadgeColor1"> 6 </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="external">
+                                    <h3><span class="bold">Notifications</span></h3>
+                                    <span class="notification-label purple-bgcolor">New 6</span>
+                                </li>
+                            </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-container">
+            <div class="sidebar-container">
+                <div class="sidemenu-container navbar-collapse collapse fixed-menu">
+                    <div id="remove-scroll" class="left-sidemenu">
+                        <ul id="nav" class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
+                            data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                            <li class="sidebar-toggler-wrapper hide">
+                                <div class="sidebar-toggler">
+                                    <span></span>
+                                </div>
+                            </li>
+                            
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div class="visible-lg visible-md visible-sm">
+                      <br>
+
+                     <!-- Score Cards Starts-->
+                        <div class="state-overview">
+                            <div class="card">
+
+                                <div class="card-body" style="padding-bottom:0px;">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-6">
+                                            <div class="overview-panel blue-bgcolor">
+                                                <div class="symbol">
+                                                    <img alt="" class="img-circle" style="width:50px;height:50px;" src="img/oxi.png">
+                                                </div>
+                                                <div class="value white">
+                                                    <p class="sbold addr-font-h1" id="Total_Oximeter">500</p>
+                                                    <p class="sbold addr-font-h4">Total Oximeter</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-lg-4 col-sm-6">
+                                            <div class="overview-panel orange">
+                                                <div class="symbol">
+                                                    <img alt="" class="img-circle" style="width:50px;height:50px;" src="img/in-stock.png">
+                                                </div>
+                                                <div class="value white">
+                                                    <p class="sbold addr-font-h1" id="Count_Farmer">400</p>
+                                                    <p class="sbold addr-font-h4">InStock</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.col -->
+
+                                        <div class="col-lg-4 col-sm-6">
+                                            <div class="overview-panel deepPink-bgcolor">
+                                                <div class="symbol">
+                                                    <img alt="" class="img-circle" style="width:50px;height:50px;" src="img/available.png">
+                                                </div>
+                                                <div class="value white">
+                                                    <p class="sbold addr-font-h1" id="Count_Pond">100</p>
+                                                    <p class="sbold addr-font-h4">Issued</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     <!-- Score Card Ends -->
+                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-topline-lightblue">
+                                <div class="card-head">
+                                <header>Submitter History</header>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                 Assign Asset
+                                </button>
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#oxireaderModal">
+                                 Add/Update Reading
+                                </button>
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#oxiissueModal">
+                                 Issue Asset
+                                </button>
+
+                                </div>
+
+                                <!--Details Table Starts-->
+                                <table id="detailstable" class="table table-striped table-bordered nowrap" style="width:100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sl.No</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Address</th>
+                                                        <th>Taluk</th>
+                                                        <th>Bed Alloted</th>
+                                                        <th>Oximeter Needed</th>  
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Mukesh</td>
+                                                        <td>Gandhinagar Dharwad</td>
+                                                        <td>Dharwad</td>
+                                                        <td>Yes</td>  
+                                                        <th>Yes</th> 
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>Rajesh</td>
+                                                        <td>Vidyanagar Hubballi</td>
+                                                        <td>Dharwad</td>
+                                                        <td>Yes</td>  
+                                                        <th>No</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>Manish</td>
+                                                        <td>Navagar Hubballi</td>
+                                                        <td>Dharwad</td>
+                                                        <td>No</td>  
+                                                        <th>Yes</th>
+                                                        
+                                                    </tr>
+                                                    
+                                                    </tbody>                                      
+                                                    <tfoot>
+                                                        <tr>
+                                                       <th>Sl.No</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Address</th>
+                                                        <th>Taluk</th>
+                                                        <th>Bed Alloted</th>
+                                                        <th>Oximeter Needed</th> 
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+
+                                <!-- DeTails Table Ends -->
+                            </div>
+                        </div>
+                     </div>
+
+                     <!-- Moodal Popup Starts-->
+
+                    <!-- Oximeter Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Assign Asset</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                           <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel">
+
+                            <div class="panel-body">
+                                <div class="row form-group">
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Name
+                                            <span class="required"> * </span>
+                                        </label>
+                                         <input type="text" class="form-control" name="Name" placeholder="Name">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Contact No
+                                            <span class="required"> * </span> <a href="#"><span class="badge">Send SMS</span></a> 
+                                        </label>
+                                       <input type="text" class="form-control" name="ContactNo" placeholder="Contact No">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Request From
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <br />
+                                        <div class="form-check form-check-inline">
+                                          <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DFStaff" value="DFStaff"> DF Staff
+                                          </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Citizen" value="Citizen"> Citizen
+                                          </label>
+                                        </div>
+                                    </div>
+                               
+      
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Impact Unit
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                    <option value="">Select a Impact</option>
+                                                        <option value="DF">Deshpande Foundation</option>
+                                                        <option value="FSSI">Deshpande Startups</option>
+                                                        <option value="DET">Deshpande Skillin</option>
+                                                        <option value="KS">Kakatiya Sandbox</option>
+                                                        <option value="other">Other</option>
+                                                </select>
+                                        
+                                    </div>
+
+                                </div>
+
+                                <!-- 1.2 Row for State,District,Taluk,Village starts -->
+                                <div class="row form-group">
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            State
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                <option value="">Select State</option>
+                                                <option value="karnataka" selected>Karnataka</option>
+                                        </select> 
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            District
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                <option value="">Select District</option>
+                                                <option value="Dharwad" selected>Dharwad</option>
+                                        </select> 
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Taluk
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                <option value="">Select Taluk</option>
+                                                <option value="Navalgund">Navalgund</option>
+                                                <option value="Kundgol">Kundgol</option>
+                                        </select> 
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Village
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                <option value="">Select Village</option>
+                                                <option value="Navalgund">Saunshi</option>
+                                                <option value="Kundgol">Shellikeri</option>
+                                        </select> 
+                                    </div>  
+                                </div>
+
+                                <!-- 1.2 Row for State,District,Taluk,Village ends-->
+
+
+                                  
+                                   <!-- Second Row Starts -->
+                                    <div class="row form-group">
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Collection Mode
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <br />
+                                        <div class="form-check form-check-inline">
+                                          <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="HomeDelivery" value="HomeDelivery">HomeDelivery
+                                          </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SelfCollect" value="SelfCollect">Self Collect
+                                          </label>
+                                        </div>
+                                    </div>
+                                
+                                
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Collection Date
+                                            <span class="required"> * </span>
+                                        </label>
+                                            <input class="form-control" type="date" value="2021-05-12" id="CollectedDate">                                        
+                                    </div>
+                                
+ 
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Return Date
+                                            <span class="required"> * </span>
+                                        </label>
+                                            <input class="form-control" type="date" value="2021-05-12" id="ReturnDate">                                        
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Collector Relationship 
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="CollectorRelationship" placeholder="CollectorRelationship">
+                                        
+                                    </div>
+                            </div>
+
+                                <!-- Second row Ends -->
+
+
+                                <!-- Third row Starts -->
+                                <div class="row form-group">
+
+                                    <div class="col-md-6">
+                                        <label class="oxilable">
+                                            Address
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="Address" placeholder="Address">
+                                        
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Landmark 
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="Landmark" placeholder="Landmark">
+                                        
+                                    </div> 
+                                
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            Collected By 
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="CollectedBy" placeholder="CollectedBy">   
+                                    </div>  
+                            </div>
+                            <!-- Third row Ends -->
+                            
+                            <!-- Fourth Row Starts-->
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="oxilable">
+                                            Select Asset Needed
+                                            <span class="required"> * </span>
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    
+                                        <label class="checkbox-inline">
+                                          <input type="checkbox" value="Oximeter"><img alt="" class="img-circle" style="width:64px;height:64px;" src="img/oximeter-01.png">
+                                        </label>
+                                        <label class="checkbox-inline">
+                                          <input type="checkbox" value="Thermometer"><img alt="" class="img-circle" style="width:64px;height:64px;" src="img/thermometer-01.png">
+                                        </label>
+                                </div> 
+                                <div class="col-md-3">
+                                        
+                                </div>
+
+                            </div>
+                            <!-- Fourth Row Ends -->
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--Modal Popup ends -->
+
+        <!-- Oximeter Reading Modal Starts-->
+         
+                    <div class="modal fade" id="oxireaderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Patient Name: Mr. XYZ</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                           <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel">
+
+                            <div class="panel-body">
+                                <div class="row form-group">
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Oxygen Level 
+                                            <span class="required"> * </span>
+                                        </label>
+                                         <input type="text" class="form-control" name="OxygenLevel" placeholder="Oxygen Level">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Pulse Rate
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="PulseRate" placeholder="Pulse Rate">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Temperature
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input type="text" class="form-control" name="temperature" placeholder="Thermometer Temperature">
+                                    </div>
+
+                                </div>
+        
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+                                </div>
+                            </div>
+
+                        </div>
+        <!-- Oximeter Reading Modal Ends -->
+
+
+        <!-- Issue Oximeter Starts -->
+        <div class="modal fade" id="oxiissueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Patient Name: Mr. XYZ</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                           <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel">
+
+                            <div class="panel-body">
+                                <div class="row form-group">
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Asset
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                    <option value="">Select Asset</option>
+                                                    <option value="Oximeter">Oximeter</option>
+                                                    <option value="Thermometer">Thermometer</option>
+                                        </select>  
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Asset Number 
+                                            <span class="required"> * </span>
+                                        </label>
+                                         <input type="text" class="form-control" name="AssetNumber" placeholder="Asset Number">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="oxilable">
+                                            Issued Date
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input class="form-control" type="date" value="2011-08-19" id="IssuedDate">
+                                    </div>
+
+                                </div>
+        
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+                                </div>
+                            </div>
+
+                        </div>
+        <!-- Issue Oximeter Ends -->
+
+
+        <script type="text/javascript">
+    $(document).ready(function() {
+    var table = $('#detailstable').DataTable( {
+        responsive: true
+    } );
+} );
+
+    
+</script>
+
+
+    <!-- start js include path -->
+    <script src="https://agri.dfindia.org/Content/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/popper/popper.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- bootstrap -->
+    <script src="https://agri.dfindia.org/Content/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- data tables -->
+    <script src="https://agri.dfindia.org/Content/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
+    
+    <script src="https://agri.dfindia.org/Content/assets/plugins/datatables/export/dataTables.buttons.min.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/datatables/export/buttons.flash.min.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/datatables/export/jszip.min.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/datatables/export/pdfmake.min.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/datatables/export/vfs_fonts.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/datatables/export/buttons.html5.min.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/plugins/datatables/export/buttons.print.min.js"></script>
+    
+    <!-- Common js-->
+    <script src="https://agri.dfindia.org/Content/assets/js/app.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/js/layout.js"></script>
+    <script src="https://agri.dfindia.org/Content/assets/js/theme-color.js"></script>
+    <!-- Material -->
+    <script src="https://agri.dfindia.org/Content/assets/plugins/material/material.min.js"></script>
+    <!-- end js include path -->
+</body>
+</html>

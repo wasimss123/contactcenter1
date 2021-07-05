@@ -1,0 +1,884 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="description" content="Responsive Admin Template" />
+    <meta name="author" content="SmartUniversity" />
+    <title>DF Contact Centre</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <!-- icons -->
+    <link href="https://covid.dfindia.org/Content/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" />
+    <!--bootstrap -->
+    <link href="https://covid.dfindia.org/Content/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- data tables -->
+    <link href="https://covid.dfindia.org/Content/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet"
+          type="text/css" />
+    <link href="..https://covid.dfindia.org/Content/assets/plugins/datatables/export/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <!-- Material Design Lite CSS -->
+    <link rel="stylesheet" href="https://covid.dfindia.org/Content/assets/plugins/material/material.min.css">
+    <link rel="stylesheet" href="https://covid.dfindia.org/Content/assets/css/material_style.css">
+    <!-- Theme Styles -->
+    <link href="https://covid.dfindia.org/Content/assets/css/theme/light/theme_style.css" rel="stylesheet" id="rt_style_components" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/assets/css/theme/light/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css" />
+    <link href="https://covid.dfindia.org/Content/css/iziToast.min.css" rel="stylesheet" />
+    <script src="https://covid.dfindia.org/Content/js/iziToast.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/js/toastr-custom.js"></script>
+
+<!--<link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.datatables.net/fixedcolumns/3.3.2/css/fixedColumns.dataTables.min.css" rel="stylesheet" type="text/css"> -->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <style>
+        #PageTitle {
+            letter-spacing: 2px;
+            color: #23527c;
+        }
+
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('http://arab-torrents.net/1/Load.gif') 50% 50% no-repeat rgb(222, 218, 218);
+            opacity: .8;
+        }
+
+        .navbar-brand {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .selectedCell {
+            /*background-color: #b8d1f3;*/
+            background-color: #acbad4;
+        }
+
+        .table-scroll {
+    position:relative;
+    max-width:100%;
+    margin:auto;
+    overflow:hidden;
+    border:1px solid #000;
+}
+.table td, .table th{
+    font-size: 12px;
+    padding: 4px 4px;
+}
+.table-wrap {
+    width:100%;
+    overflow:auto;
+}
+.table-scroll table {
+    width:100%;
+    margin:auto;
+    border-collapse:separate;
+    border-spacing:0;
+}
+.table-scroll th, .table-scroll td {
+    padding:5px 10px;
+    border:1px solid #000;
+    background:#fff;
+    white-space:nowrap;
+    vertical-align:top;
+}
+.table-scroll thead, .table-scroll tfoot {
+    background:#f9f9f9;
+}
+.clone {
+    position:absolute;
+    top:0;
+    left:0;
+    pointer-events:none;
+}
+.clone th, .clone td {
+    visibility:hidden
+}
+.clone td, .clone th {
+    border-color:transparent
+}
+.clone tbody th {
+    visibility:visible;
+    color:red;
+}
+.clone .fixed-side {
+    border:1px solid #000;
+    background:#eee;
+    visibility:visible;
+}
+.clone thead, .clone tfoot{background:transparent;}
+th {
+    background: #073f6b !important;
+    font-size: 12px !important;
+    color: #fff;
+}
+td.fixed-side {
+    background: #073f6b !important;
+    color: #fff !important;
+}
+th.fixed-side {
+    color: #fff !important;
+}
+
+.table thead tr th {
+    font-weight: 600;
+    }
+
+ .table th, .card .table th,.table td,.card .table td{
+    padding: 4px 4px;
+    font-weight: 600;
+
+ }
+    </style>
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            setTimeout(function () { $('.loader').fadeOut('slow'); });
+        });
+    </script>
+</head>
+
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo" >
+    <div class="loader"></div>
+    <div class="page-wrapper">
+
+        <!-- start header -->
+        <div class="page-header navbar navbar-fixed-top">
+
+            
+            <div class="page-header-inner ">
+                <!-- logo start -->
+                <div class="page-logo" style="border:0px;">
+                    <a>
+                        <span class=""><img alt="" src="https://covid.dfindia.org/Content/assets/img/df-logo-01.png" /></span>
+                        <span class="logo-default"></span>
+                    </a>
+                </div>
+                <!-- logo end -->
+                <ul class="nav navbar-nav navbar-left in">
+                    <li>
+                        <a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i>&nbsp;&nbsp; <label id="PageTitle" class="navbar-brand font-dark bold uppercase"> </label> </a>
+
+                    </li>
+
+
+
+                </ul>
+
+
+                <div class="top-menu">
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" style="display:none;">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                               data-close-others="true">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="badge headerBadgeColor1"> 6 </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="external">
+                                    <h3><span class="bold">Notifications</span></h3>
+                                    <span class="notification-label purple-bgcolor">New 6</span>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">just now</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle deepPink-bgcolor">
+                                                        <i class="fa fa-check"></i>
+                                                    </span>
+                                                    Congratulations!.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">3 mins</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle purple-bgcolor">
+                                                        <i class="fa fa-user o"></i>
+                                                    </span>
+                                                    <b>John Micle </b>is now following you.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">7 mins</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle blue-bgcolor">
+                                                        <i class="fa fa-comments-o"></i>
+                                                    </span>
+                                                    <b>Sneha Jogi </b>sent you a message.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">12 mins</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle pink">
+                                                        <i class="fa fa-heart"></i>
+                                                    </span>
+                                                    <b>Ravi Patel </b>like your photo.
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">15 mins</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle yellow">
+                                                        <i class="fa fa-warning"></i>
+                                                    </span> Warning!
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <span class="time">10 hrs</span>
+                                                <span class="details">
+                                                    <span class="notification-icon circle red">
+                                                        <i class="fa fa-times"></i>
+                                                    </span> Application error.
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="dropdown-menu-footer">
+                                        <a href="javascript:void(0)"> All notifications </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-user">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                               data-close-others="true">
+                                <img alt="" class="img-circle " src="https://covid.dfindia.org/Content/Icon/NoImage.jpg" />
+                                <span class="username username-hide-on-mobile"> <span class="hidden-xs">anu@dfmail.org</span> </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                
+                                <li>
+                                    <a href="/Home/Logout">
+                                        <i class="icon-logout"></i> Log Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+                               data-target=".navbar-collapse">
+                                <span></span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- end color quick setting -->
+        <!-- start page container -->
+        <div class="page-container">
+            <!-- start sidebar menu -->
+            <div class="sidebar-container">
+                <div class="sidemenu-container navbar-collapse collapse fixed-menu">
+                    <div id="remove-scroll" class="left-sidemenu">
+                        <ul id="nav" class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
+                            data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                            <li class="sidebar-toggler-wrapper hide">
+                                <div class="sidebar-toggler">
+                                    <span></span>
+                                </div>
+                            </li>
+                                    <li class="nav-item">
+            <a href="/Services/Index" class="nav-link nav-toggle">
+                
+                <span class="title">Hospital Details</span>
+            </a>
+        </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <div class="visible-lg visible-md visible-sm">
+                        <br />
+                    </div>
+                    
+
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+<style>
+    .loader {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(192, 192, 192, 0.5);
+        background-image: url('../..https://covid.dfindia.org/Content/Load.gif');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    h3.card-subheads {
+    font-size: 18px !important;
+    line-height: 10px;
+    font-weight: 500;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    border-bottom: 1px solid #0000005e;
+    padding:    10px;
+    border-bottom:  1px solid #eee;
+}
+
+h3.card-subheads1 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 6px;
+}
+th, td { white-space: nowrap; }
+    div.dataTables_wrapper {
+        width: 800px;
+        margin: 0 auto;
+    }
+    td#bedcap {
+    text-align: center;
+    font-weight: 700;
+    background: #A4C639;
+}
+
+td#bedocc {
+    text-align: center;
+    font-weight: 700;
+    background: #ff7b25;
+}
+td#oxybedocc {
+    text-align: center;
+    font-weight: 700;
+    background: #b5e7a0;
+}
+td#icubedocc {
+    text-align: center;
+    font-weight: 700;
+    background: #eca1a6;
+}
+td#ventocc {
+    text-align: center;
+    font-weight: 700;
+    background: #EA4335;
+}
+td#bedvc {
+    text-align: center;
+    font-weight: 700;
+    background: #dac292;
+}
+td#remav {
+    text-align: center;
+    font-weight: 700;
+    background: #b1cbbb;
+}
+td#deaths {
+    text-align: center;
+    font-weight: 700;
+    background: #ED1C16;
+}
+td#patdisc {
+    text-align: center;
+    font-weight: 700;
+    background: #82b74b;
+}
+.table-scroll td {
+    text-align: center;
+   }
+   td.fixed-side {
+    text-align: left;
+}
+
+h3.card-subheads1 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 6px;
+    margin-left: 16px;
+    text-decoration: underline;
+}
+
+</style>
+
+
+
+
+<br>
+<div id="loader" class="loader">
+
+</div>
+<div id="vmTopStatic">
+    <div class="state-overview">
+        <div class="card">
+            <div class="card-body" style="padding-bottom:0px;">
+                <div class="row">
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel blue-bgcolor">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/oxi.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Oximeter_TOT"></p>
+                                <p class="sbold addr-font-h4">TOT Oximeter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel orange">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/in-stock.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Oximeter_InStock"></p>
+                                <p class="sbold addr-font-h4">InStock Oximeter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel deepPink-bgcolor">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/available.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Oximeter_Issued"></p>
+                                <p class="sbold addr-font-h4">Issued Oximeter</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel blue-bgcolor">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/thermometer.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Thermometer_TOT"></p>
+                                <p class="sbold addr-font-h4">TOT<br> Thermometer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel orange">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/in-stock.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Thermometer_InStock"></p>
+                                <p class="sbold addr-font-h4">Instock <br>Thermometer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="overview-panel deepPink-bgcolor">
+                            <div class="symbol">
+                                <img alt="" class="img-circle" style="width:50px;height:50px;" src="https://covid.dfindia.org/Content/images/available.png">
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" id="Thermometer_Issued"></p>
+                                <p class="sbold addr-font-h4">Issued <br>Thermometer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+</div>
+
+<div class="container-fluid">
+    
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-topline-lightblue" id="Patient_Request" >
+                <h3 class="card-subheads1">Hospital Details</h3>
+                 <div class="panel-body">
+                    <!-- 6th Card Starts -->
+                    <div class="card">
+                    
+                                    <div class="row form-group">
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            From Date
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input class="form-control" type="date" value="2021-05-12" id="fromDate">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="oxilable">
+                                            To Date
+                                            <span class="required"> * </span>
+                                        </label>
+                                       <input class="form-control" type="date" value="2021-05-12" id="toDate">
+                                    </div>
+
+                                    <div class="col-md-3" style="margin-top: 30px;">
+                                        
+                                       <button type="button" class="btn btn-primary">Search</button>
+                                    </div>
+
+                                    
+
+                                </div>
+
+                                    <!-- 6th Row Ends -->
+                    </div>
+
+                    <!-- 6th Card Ends -->
+
+                    
+
+
+    <div id="table-scroll" class="table-scroll">
+  <div class="table-wrap">
+    <table id="main-table" class="table table-bordered nowrap">
+      <thead>
+        <tr>
+            <td class="fixed-side" scope="col"></td>
+            <td class="fixed-side" scope="col"></td>
+            <td colspan="5" id="bedcap">Beds Capacity</td>
+            <td colspan="6" id="bedocc">TOT Beds Occupied</td>
+            <td colspan="3" id="oxybedocc">Oxygen Bed Occupied</td>
+            <td colspan="3" id="icubedocc"> ICU Beds Occupied</td>
+            <td colspan="3" id="ventocc"> Ventilators Occupied</td>
+            <td colspan="4" id="bedvc"> Beds Vacant</td>
+            <td colspan="3" id="remav"> Number of Patients given Remdesivir vials</td>
+            <td colspan="2" id="remav"> Availability Of</td>
+            <td id="deaths"> No of Deaths</td>
+            <td colspan="3" id="patdisc"> Patients Discharged</td>
+            <td id="patdisc"> Incharge</td>
+        </tr>
+        <tr>
+          <th class="fixed-side" scope="col">Sl.No</th>
+          <th class="fixed-side" scope="col">Hospital</th>
+          <th scope="col">TOT Expected Bed</th>
+          <th scope="col">Actual Beds Available</th>
+          <th scope="col">TOT Oxygen Bed</th>
+          <th scope="col">TOT ICU Bed</th>
+          <th scope="col">TOT Ventilators Avalible</th>
+          <th scope="col">Admitted under AB-ARK</th>
+          <th scope="col">AB-ARK Within Dharwad</th>
+          <th scope="col">AB-ARK OutSide Dharwad</th>
+          <th scope="col">TOT Covid Patient Admitted</th>
+          <th scope="col">Within Dharwad</th>
+          <th scope="col">OutSide Dharwad</th>
+          <th scope="col">TOT Oxygen Bed Occupied</th>
+          <th scope="col">Within Dharwad</th>
+          <th scope="col">OutSide Dharwad</th>
+          <th scope="col">TOT ICU Bed Occupied</th>
+          <th scope="col">Within Dharwad</th>
+          <th scope="col">OutSide Dharwad</th>
+          <th scope="col">TOT Ventilators Occupied</th>
+          <th scope="col">Within Dharwad</th>
+          <th scope="col">OutSide Dharwad</th>
+          <th scope="col">TOT Covid bed Vacant</th>
+          <th scope="col">TOT Oxygen Bed Vacant</th>
+          <th scope="col">TOT ICU Bed Vacant</th>
+          <th scope="col">TOT Ventilators Vacant</th>
+          <th scope="col">TOT Avial Given</th>
+          <th scope="col">Within Dharwad</th>
+          <th scope="col">OutSide Dharwad</th>
+          <th scope="col">Remdesivir vials in Nos</th>
+          <th scope="col">Oxygen in Litres</th>
+          <th scope="col">No of Deaths</th>
+          <th scope="col">TOT Discharge</th>
+          <th scope="col">Within Dharwad</th>
+          <th scope="col">OutSide Dharwad</th>
+          <th scope="col">Nodal Officer</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="fixed-side">1</th>
+          <td class="fixed-side">KIMS Hubballi</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+          <td>26</td>
+          <td>27</td>
+          <td>28</td>
+          <td>29</td>
+          <td>30</td>
+          <td>31</td>
+          <td>32</td>
+          <td>33</td>
+          <td>34</td>
+          <td>35</td>
+          <td>36</td>
+          <td>37</td>
+          <td>RakeshKumar</td>
+            
+        </tr>
+        <tr>
+          <th class="fixed-side">2</th>
+          <td class="fixed-side">SDM Dharwad</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+          <td>26</td>
+          <td>27</td>
+          <td>28</td>
+          <td>29</td>
+          <td>30</td>
+          <td>31</td>
+          <td>32</td>
+          <td>33</td>
+          <td>34</td>
+          <td>35</td>
+          <td>36</td>
+          <td>37</td>
+          <td>GopalKrishna</td>
+         
+        </tr>
+
+        <tr>
+          <th class="fixed-side">3</th>
+          <td class="fixed-side">Tatwadarsh Hubballi</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+          <td>26</td>
+          <td>27</td>
+          <td>28</td>
+          <td>29</td>
+          <td>30</td>
+          <td>31</td>
+          <td>32</td>
+          <td>33</td>
+          <td>34</td>
+          <td>35</td>
+          <td>36</td>
+          <td>37</td>
+          <td>Nayak R K</td>
+          
+        </tr>
+       
+      </tbody>
+      <tfoot>
+        <tr>
+          <th class="fixed-side">&nbsp;</th>
+          <td class="fixed-side">Hospital</td>
+          <td>Footer 2</td>
+          <td>Footer 3</td>
+          <td>Footer 4</td>
+          <td>Footer 5</td>
+          <td>Footer 6</td>
+          <td>Footer 7</td>
+          <td>Footer 8</td>
+          <td>Footer 9</td>
+          <td>Footer 10</td>
+          <td>Footer 11</td>
+          <td>Footer 12</td>
+          <td>Footer 13</td>
+          <td>Footer 14</td>
+          <td>Footer 15</td>
+          <td>Footer 16</td>
+          <td>Footer 17</td>
+          <td>Footer 18</td>
+          <td>Footer 19</td>
+          <td>Footer 20</td>
+          <td>Footer 21</td>
+          <td>Footer 22</td>
+          <td>Footer 23</td>
+          <td>Footer 24</td>
+          <td>Footer 25</td>
+          <td>Footer 26</td>
+          <td>Footer 27</td>
+          <td>Footer 28</td>
+          <td>Footer 29</td>
+          <td>Footer 30</td>
+          <td>Footer 31</td>
+          <td>Footer 32</td>
+          <td>Footer 33</td>
+          <td>Footer 34</td>
+          <td>Footer 35</td>
+         
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+
+
+                 </div>
+                
+                      
+
+
+            </div>
+<div class="card card-topline-lightblue" id="IssueModal" style="display:none;">                
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+<link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"
+      rel="Stylesheet" type="text/css" />
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/Scripts/bootstrap-datepicker.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+
+                </div>
+            </div>
+            <!-- start footer -->
+            <div class="page-footer">
+                <div class="page-footer-inner">
+                    2021-2022 &copy; Deshpande Foundation, Hubli
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+            </div>
+            <!-- end footer -->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+   // requires jquery library
+jQuery(document).ready(function() {
+   jQuery("#main-table").clone(true).appendTo('#table-scroll').addClass('clone');   
+ });
+
+
+    
+</script>
+    <!-- start js include path -->
+    <script src="https://covid.dfindia.org/Content/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/popper/popper.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- bootstrap -->
+    <script src="https://covid.dfindia.org/Content/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- data tables -->
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
+    
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/dataTables.buttons.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/buttons.flash.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/jszip.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/pdfmake.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/vfs_fonts.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/buttons.html5.min.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/plugins/datatables/export/buttons.print.min.js"></script>
+    
+    <!-- Common js-->
+    <script src="https://covid.dfindia.org/Content/assets/js/app.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/js/layout.js"></script>
+    <script src="https://covid.dfindia.org/Content/assets/js/theme-color.js"></script>
+    <!-- Material -->
+    <script src="https://covid.dfindia.org/Content/assets/plugins/material/material.min.js"></script>
+    <!-- end js include path -->
+</body>
+</html>

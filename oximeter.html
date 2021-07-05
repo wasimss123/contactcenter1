@@ -1,0 +1,272 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-heading">
+             <h2> Test File Heading</h2>
+                <div class="row">
+                    <div class="col-md-5">
+                        Search
+                        <input type="text" id="txtSearch" name="txtSearch" placeholder="Search SRF_Id / Patient Name / Contact No..." class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        From Date
+                        <input type="text" id="txtFromDate" class="form-control" value="01-04-2021" placeholder="dd-mm-yyyy">
+                    </div>
+                    <div class="col-md-2">
+                        To Date
+                        <input type="text" id="txtToDate" class="form-control" value="31-03-2022" placeholder="dd-mm-yyyy">
+                    </div>
+                   
+                    <div class="col-md-1">
+                        <br>
+                        <button id="btnSearch" class="btn btn-primary" onclick="LoadPatients()"><span class="fa fa-search"></span> &nbsp; Search</button>
+                    </div>
+                    <div class="col-md-1">
+                        <br>
+                        <a href="#" id="AddPatient" class="btn btn-facebook">
+                            <i class="fa fa-plus m-r-5"></i>  Add New
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-wrap">
+                            <table id="tablePatients" class="table" style="cursor:pointer"><thead><tr><th style="width:3%;">S.No.</th><th style="width:7%;">SRF_ID</th><th style="width:10%;">Patient Name</th><th style="width:7%;">Phone</th><th style="width:5%;">Age</th><th style="width:10%;">Gender</th><th style="width:10%;">Tested</th><th style="width:10%;">Test Result</th></tr></thead><tbody><tr><td>1</td><td>1223455</td><td>Bindya</td><td>9876541234</td><td>55</td><td>Male</td><td>Yes</td><td>Positive<label id="lblPatient_Id" style="display:none;">1</label></td></tr><tr><td>2</td><td>123455</td><td>sandya</td><td>978372221</td><td>1</td><td>Female</td><td>Yes</td><td>Negative<label id="lblPatient_Id" style="display:none;">2</label></td></tr><tr><td>3</td><td>232323</td><td>New Patient</td><td>2323232323</td><td>14</td><td>Male</td><td>Yes</td><td>Positive<label id="lblPatient_Id" style="display:none;">4</label></td></tr><tr><td>4</td><td>1234567890</td><td>Parashuram</td><td>9986379552</td><td>31</td><td></td><td>Yes</td><td>Positive<label id="lblPatient_Id" style="display:none;">5</label></td></tr><tr><td>5</td><td>1234567890</td><td>Parashuram</td><td>9986379552</td><td>31</td><td></td><td>Yes</td><td>Positive<label id="lblPatient_Id" style="display:none;">6</label></td></tr><tr><td>6</td><td>123455</td><td>testing patients</td><td>2323232323</td><td>35</td><td></td><td>Yes</td><td>Positive<label id="lblPatient_Id" style="display:none;">7</label></td></tr><tr><td>7</td><td>123455</td><td>single value</td><td>233</td><td>10</td><td></td><td>Yes</td><td>Positive<label id="lblPatient_Id" style="display:none;">8</label></td></tr><tr><td>8</td><td>1234567890</td><td>fdsfdsfd</td><td>7674654543</td><td>31</td><td>Male</td><td>Yes</td><td>sdfsdf<label id="lblPatient_Id" style="display:none;">9</label></td></tr></tbody></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+-----------------------------
+
+
+
+<div class="modal fade" id="addModel" tabindex="-1" employee="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg" employee="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel"><label id="pop_Title">Add New Patient</label></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="error" class="clsNotAvailable"></p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel">
+
+                            <div class="panel-body">
+                                <div class="row form-group">
+                                    <div class="col-md-3">
+                                        <label>
+                                            Date
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="CalledOn" name="CalledOn" type="text" value="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Caller Name
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="CallerName" name="CallerName" type="text" value="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Caller Number
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="CallerNo" name="CallerNo" type="number" value="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Caller Relationship
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="CallerRelation" name="CallerRelation" type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-3">
+                                        <label>
+                                            Patient Name
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="PatientName" name="PatientName" type="text" value="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Contact No
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="ContactNo" name="ContactNo" type="number" value="">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>
+                                            DOB
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="DateofBirth" name="DateofBirth" type="text" value="">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label>
+                                            Age
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="Age" name="Age" type="number" value="" disabled="disabled">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>
+                                            Patient Gender
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <br>
+                                        <input type="radio" name="Gender" value="Male"> Male
+                                        &nbsp;
+                                        <input type="radio" name="Gender" value="Female"> Female
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-3">
+                                        <label>
+                                            Aadhar No
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="AdhaarNo" name="AdhaarNo" type="text" value="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            State
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="State_Id" name="State_Id" type="number" value="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            District
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="District_Id" name="District_Id" type="number" value="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-3">
+                                            Enter Address
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <textarea class="form-control text-box multi-line" id="Address" name="Address"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                        <label>Covid Test</label>
+                                        <input type="radio" name="CovidTest" value="Yes"> Yes
+                                        &nbsp;
+                                        <input type="radio" name="CovidTest" value="No"> No
+                                       
+                                    </div>
+                                    <div class="col-md-3" id="covid_result" style="display:none;">
+                                        <label>
+                                            Test Result
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control" id="TestResults" name="TestResults" required="required"><option value="">Select *</option>
+<option value="Positive">Positive</option>
+<option value="Negative">Negative</option>
+</select>*
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            SRF ID
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="SRFID" name="SRFID" type="text" value="">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label>Ambulance Required</label>
+                                        <input type="radio" name="AmbulanceRequired" value="Yes"> Yes
+                                        &nbsp;
+                                        <input type="radio" name="AmbulanceRequired" value="No"> No
+
+                                       
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>Bed Allocated</label>
+                                        <select class="form-control" id="BedAllocated" name="BedAllocated" required="required"><option value="">Select *</option>
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+</select>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                        <label>Bed Types</label>
+                                        <select class="form-control" id="BedType" name="BedType" required="required"><option value="">Select *</option>
+<option value="1">foldable</option>
+<option value="2">semifoldable</option>
+</select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>
+                                            Hospital Name
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control dropdown" id="Hospital_Id">
+                                            <option value="">Select</option>
+                                        <option value="1">KIMS</option></select>
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Doctor Comments
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <textarea class="form-control text-box multi-line" id="DoctorComments" name="DoctorComments"></textarea>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Remark
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <textarea class="form-control text-box multi-line" id="Remarks" name="Remarks"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-3">
+                                        <label>
+                                            Doctor Name
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="DoctorName" name="DoctorName" type="text" value="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Data collected by
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <input class="form-control text-box single-line" id="DataCollectionBy" name="DataCollectionBy" type="text" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSave" onclick="AddNewPatient()">Save</button>
+                    <button type="button" class="btn btn-primary" id="btnUpdate" onclick="UpdatePatient()" style="display: none;">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
